@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
           devoured: true,
         };
 
-        fetch(`/api/cats/${id}`, {
+        fetch(`/api/burgers/${id}`, {
           method: 'PUT',
           headers: {
             Accept: 'application/json',
@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
           // Check that the response is all good
           // Reload the page so the user can see the new quote
           if (response.ok) {
-            console.log(`changed sleep to: ${newSleep}`);
             location.reload('/');
           } else {
             alert('something went wrong!');
@@ -75,19 +74,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
   }
 
   // DELETE
-  const deleteCatBtns = document.querySelectorAll('.delete-cat');
+  const deleteBurgerBtns = document.querySelectorAll('.deleteBtn');
 
   // Set up the event listeners for each delete button
-  deleteCatBtns.forEach((button) => {
+  deleteBurgerBtns.forEach((button) => {
     button.addEventListener('click', (e) => {
       const id = e.target.getAttribute('data-id');
 
       // Send the delete request
-      fetch(`/api/cats/${id}`, {
+      fetch(`/api/burgers/${id}`, {
         method: 'DELETE',
       }).then((res) => {
         console.log(res);
-        console.log(`Deleted cat: ${id}`);
+        console.log(`Deleted burger: ${id}`);
 
         // Reload the page
         location.reload();
