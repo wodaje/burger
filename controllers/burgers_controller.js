@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 
 router.post('/api/burgers', (req, res) => {
   burger.create(['burger_name'], [req.body.burger_name], (result) => {
-    // Send back the ID of the new quote
+ 
     res.json({ id: result.insertId });
   });
 });
@@ -26,7 +26,7 @@ router.post('/api/burgers', (req, res) => {
 router.put('/api/burgers/:id', (req, res) => {
   const condition = `id = ${req.params.id}`;
 
-  console.log('condition', condition);
+
 
   burger.update(
     {
